@@ -6,14 +6,13 @@ use Carbon\Carbon;
 use App\Models\Barang;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-// use Yajra\DataTables\Facades\DataTables;
-
 class BarangController extends Controller
 {
     function index()
     {
-        $data = Barang::orderBy('no_rfq', 'asc');
-        return view('welcome')->with('data', $data);
+        $plaintText = "welcome";
+        $encodedUrl = base64_encode($plaintText);
+        return view('welcome', compact('encodedUrl'));
     }
 
     function records(Request $request)

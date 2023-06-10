@@ -13,10 +13,14 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
                 <h1 class="text-center">Laravel 9 Datatable Crud x Ajax</h1>
+                @auth
+                <p>Welcome <b>{{ Auth::user()->name }}</b></p>
+                @endauth
                 <hr>
             </div>
 
@@ -42,17 +46,27 @@
                     </div>
                 </div>
                 <div>
+                    @auth
                     <button id="filter" class="btn btn-primary">Filter</button>
                     <button id="reset" class="btn btn-warning">Reset</button>
+                    @endauth
                 </div>
             </div>
 
         </div>
         <div class="row">
             <div class="col-12 mt-5">
-                <div class="mb-3">
+                <div class="mb-3 ">
+                    @auth
                     <a class="btn btn-primary tombol-add">+ Add Data Barang</a>
+                    <a class="btn btn-danger" href="{{ route('logout', $encodedUrl) }}">Logout</a>
+                    @endauth
+
+                    @guest
+                    <a class="btn btn-primary" href="{{ route('login', $encodedUrl) }}">Login</a>
+                    @endguest
                 </div>
+
                 <div class="table-responsive">
                     <div class="alert alert-success d-none"></div>
 
@@ -100,10 +114,11 @@
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
                             <textarea class="form-control" name="description" id="description" rows="4" placeholder="Description RFQ..."></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Harga Pokok</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Rp</span>
                             <input type="number" class="form-control" name="harga_pokok" id="harga_pokok" placeholder="Harga Pokok RFQ...">
                         </div>
+
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Nama Toko</label>
                             <input type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Nama Toko...">
@@ -183,7 +198,10 @@
                             },
                             {
                                 "data": "harga_pokok",
-                                "render": $.fn.dataTable.render.number(',', '.', 2, 'Rp. ')
+                                "render": $.fn.dataTable.render.number(',', '.', 0, 'Rp. ')
+                                // "render": $('.uang').mask('000.000.000', {
+                                //     reverse: true
+                                // })
                             },
                             {
                                 "data": "nama_toko",
@@ -237,6 +255,8 @@
             fetch();
         });
     </script>
+
+    @auth
     <script>
         // Global Setup
         $.ajaxSetup({
@@ -353,16 +373,9 @@
                     });
                 }
             });
-            // if (confirm('Yakin mau Hapus data ini ?') == true) {
-
-            // $.ajax({
-            //     url: 'barang/' + id,
-            //     type: "DELETE",
-            // });
-            // location.reload();
-
         });
     </script>
+    @endauth
 </body>
 
 </html>
