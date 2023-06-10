@@ -30,3 +30,21 @@ Berikut adalah langkah - langkahnya :
     - php artisan key:generate (*Note untuk mendapatkan generate key yg baru di .env)
     - php artisan serve (*Note untuk menjalan program ini)
 8. Setelah semuanya beres, lalu buka dibrowser kalian. *Jika Error ulangi langkah ke 6. Happy Coding :)
+
+
+## ScreenShot
+`Dashboard`
+
+![Screenshot 2023-06-10 093549](https://github.com/Dhanz199/Laravel_CrudxAjax/assets/68377029/021c9e3f-c0e4-4b6c-b323-fe32258eed8f)
+
+`Add Barang`
+
+![Screenshot 2023-06-10 093605](https://github.com/Dhanz199/Laravel_CrudxAjax/assets/68377029/91623d9c-c999-4595-8f7e-e45716b0beee)
+
+`Update Barang`
+
+![Screenshot 2023-06-10 093711](https://github.com/Dhanz199/Laravel_CrudxAjax/assets/68377029/47fbf5ca-0551-454b-b30a-adc0708aff80)
+
+`Delete Barang with sweet alert`
+
+![Screenshot 2023-06-10 093722](https://github.com/Dhanz199/Laravel_CrudxAjax/assets/68377029/78ad28de-810a-4284-89b8-b2fd929c7672)
